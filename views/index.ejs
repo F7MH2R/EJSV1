@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Biblioteca</h1>
+      <button
+        class="btn btn-success mb-4"
+        onclick="window.location.href='/libros/create'"
+      >
+        Añadir Libro
+      </button>
+      <div class="row">
+        <% libros.forEach(Libro =>{%>
+        <div class="col-sm-6 col-md-4 mb-4">
+          <div class="card">
+            <img src="<%=Libro.image_url %>" alt="<%=Libro.title %>" />
+            <div class="card-bordy">
+              <h5 class="card-tittle"><%=Libro.title%></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%=Libro.author%></h6>
+              <p class="card-text">
+                Año de publicación <%=Libro.published_year%>
+              </p>
+            </div>
+          </div>
+        </div>
+        <%})%>
+      </div>
+    </div>
+  </body>
+</html>

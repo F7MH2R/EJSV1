@@ -18,9 +18,15 @@ moongose
     console.error("Error al conectar la Base de datos");
   });
 
-//mandar a llamar los router
-app.use(router);
+app.set("view engine", "ejs");
+app.set("views", "./views");
 
+//Middleware para formularios
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+//mandar a llamar los router
+
+app.use(router);
 //Escucha del Puerto
 app.listen(port, () => {
   console.log(`Puerto ${port}`);
